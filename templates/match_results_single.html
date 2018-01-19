@@ -1,0 +1,45 @@
+{%  extends 'base.html' %}
+<title>{% block title %}Match Results{% endblock %}</title>
+
+{% block display %}
+    <table class="match-header">
+        <thead>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Course</th><td>{{ match_meta.course.name }}</td>
+            </tr>
+            <tr>
+                <th>Date</th><td>{{ match_meta.date }}</td>
+            </tr>
+            <tr>
+                <th>Game</th><td>{{ match_meta.game_number }}</td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>{{ match_meta.notes }}</td>
+            </tr>
+        </tbody>
+    </table>
+<hr>
+    <table class="match-display">
+        <thead>
+
+        </thead>
+        <tbody>
+            <tr>
+                <th>Hole</th>
+                {% for k, v in course_meta.par.items %}
+                    <td>{{ k }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Par</th>
+                {% for k, v in course_meta.par.items %}
+                    <td>{{ v }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

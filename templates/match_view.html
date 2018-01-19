@@ -1,0 +1,26 @@
+{%  extends 'base.html' %}
+
+{% block display %}
+    <h2>
+        Match View
+    </h2>
+
+    <table class="stock">
+    <thead>
+        <th>Course</th>
+        <th>Date</th>
+        <th>Match</th>
+        <th>Notes</th>
+    </thead>
+    <tbody>
+    {% for match in matches %}
+        <td><a href="{{ match.get_absolute_url }}">{{ match.course }}</a></td>
+        <td>{{ match.date }}</td>
+        <td>{{ match.game_number }}</td>
+        <td>{{ match.notes }}</td>
+    {% endfor %}
+    </tbody>
+    </table>
+
+
+{% endblock %}

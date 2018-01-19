@@ -1,0 +1,57 @@
+:root {
+    --body-main-font-fam: Arial, Helvetica, sans-serif;
+    --body-main-font-size: 14px;
+    --body-main-bg: rgba(116, 127, 153, 0.52);
+    --tb-main-bg: white;
+    --tb-main-txt: black;
+    --tb-main-font-fam: Arial, Helvetica, sans-serif;
+    --tb-main-font-size: 14px;
+    --pane-top-bg: rgba(225, 234, 236, 0.57);
+    --pane-top-var: 20px;
+    --pane-left-var: 10px;
+    --pane-all-margin: 8px;
+    --pane-internal-margin: 2px;
+    --results-main-font-fam: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    --results-main-font-size: 14px;
+    --results-main-font-weight: 600;
+}
+
+body{
+    font-family: var(--body-main-font-fam);
+    font-size: var(--body-main-font-size);
+    margin: var( --pane-all-margin);
+    padding: 0px;
+    background-color: var(--body-main-bg);
+}
+
+.navbar {
+    width: 100%;
+    height: 25px;
+    padding-top: var(--pane-internal-margin);
+    background-color: var(--pane-top-bg);
+}
+
+.navtable td {
+    border-collapse: collapse;
+    padding: 4px;
+}
+
+.stock td {
+    width: 18%;
+    border: 1px solid black;
+}
+
+.match-display {
+    width:80%;
+    font-family: var(--results-main-font-fam);
+    font-size: var(--results-main-font-size);
+    font-weight: var(--results-main-font-weight);
+    border-collapse: collapse;
+}
+
+.match-display td {
+    text-align: right;
+    border: 0px solid black;
+    padding: 2px;
+    width: 5%;
+}

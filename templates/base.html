@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>{% block title %}FROLF{% endblock %}</title>
+</head>
+
+
+<div class="navbar">
+<table class="navtable">
+    <thead></thead>
+    <tbody>
+    <tr>
+        <td><a href="/">Home</a><br></td>
+        <td><a href="admin">Admin</a></td>
+        <td><a href="match_results_view">Results</a></td>
+        <td><a href="match_results_add">Add</a></td>
+        <td width="80px"></td>
+        <td>{{ username }} logged in</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+    {% block display %}
+    {% endblock %}
+
+</body>
+</html>
