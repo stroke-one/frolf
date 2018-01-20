@@ -5,10 +5,9 @@
     <table class=table">
         <thead>
         <tr>
-            <th scope="row">Course</th>
-            <th scope="row">Date</th>
-            <th scope="row">Game</th>
-            <th scope="row">Notes</th>
+            <th scope="row" width="20%">Course</th>
+            <th scope="row" width="20%">Date</th>
+            <th scope="row" width="20%">Game</th>
         </tr>
         </thead>
         <tbody>
@@ -16,7 +15,6 @@
                 <td>{{ match_meta.course.name }}</td>
                 <td>{{ match_meta.date }}</td>
                 <td>{{ match_meta.game_number }}</td>
-                <td>{{ match_meta.notes }}</td>
             </tr>
         </tbody>
     </table>
@@ -40,5 +38,9 @@
             </tr>
         </tbody>
     </table>
+
+<hr>
+<h5>Match Notes</h5>
+{{ match_meta.notes }}
 
 {% endblock %}
