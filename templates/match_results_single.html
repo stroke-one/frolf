@@ -4,38 +4,38 @@
 {% block display %}
     <table class=table">
         <thead>
+        <tr>
+            <th scope="row">Course</th>
+            <th scope="row">Date</th>
+            <th scope="row">Game</th>
+            <th scope="row">Notes</th>
+        </tr>
         </thead>
         <tbody>
             <tr>
-                <th>Course</th><td>{{ match_meta.course.name }}</td>
-            </tr>
-            <tr>
-                <th>Date</th><td>{{ match_meta.date }}</td>
-            </tr>
-            <tr>
-                <th>Game</th><td>{{ match_meta.game_number }}</td>
-            </tr>
-            <tr>
-                <th>Notes</th>
+                <td>{{ match_meta.course.name }}</td>
+                <td>{{ match_meta.date }}</td>
+                <td>{{ match_meta.game_number }}</td>
                 <td>{{ match_meta.notes }}</td>
             </tr>
         </tbody>
     </table>
 <hr>
-    <table class="table">
+    <table class="table table-sm">
         <thead>
         </thead>
         <tbody>
             <tr>
                 <th scope="row">Hole</th>
                 {% for k, v in course_meta.par.items %}
-                    <td>{{ k }}</td>
+                    <td align="right" width="5%">{{ k }}</td>
                 {% endfor %}
             </tr>
+            <tr></tr>
             <tr>
                 <th>Par</th>
                 {% for k, v in course_meta.par.items %}
-                    <td>{{ v }}</td>
+                    <td align="right">{{ v }}</td>
                 {% endfor %}
             </tr>
         </tbody>
