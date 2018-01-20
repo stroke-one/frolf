@@ -2,7 +2,7 @@
 <title>{% block title %}Match Results{% endblock %}</title>
 
 {% block display %}
-    <table class="match-header">
+    <table class=table">
         <thead>
         </thead>
         <tbody>
@@ -22,13 +22,12 @@
         </tbody>
     </table>
 <hr>
-    <table class="match-display">
+    <table class="table">
         <thead>
-
         </thead>
         <tbody>
             <tr>
-                <th>Hole</th>
+                <th scope="row">Hole</th>
                 {% for k, v in course_meta.par.items %}
                     <td>{{ k }}</td>
                 {% endfor %}
