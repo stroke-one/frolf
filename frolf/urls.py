@@ -25,8 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', auth_views.login, {'template_name': 'login.html'}),
     path('logout/', auth_views.logout, {'template_name': 'logout.html'}),
-    path('match_results_view', score.views.match_results_view),
-    path('match_results_single/<int:id>/', score.views.match_results_single),
+    path('match_results_view', score.views.competition_results_list),
+    path('match_results_single/<int:id>/', score.views.competition_results_single),
+    path('course_add', score.views.course_add),
+    path('match_results_add', score.views.competition_add),
     # path('match_results_add', score.views.default, name="add"),
 
 ]
