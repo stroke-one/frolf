@@ -14,7 +14,7 @@ class Course(models.Model):
 
 class Hole(models.Model):
     course = models.ForeignKey('score.Course',
-                               on_delete=models.PROTECT)
+                               on_delete=models.CASCADE)
     number = models.IntegerField()
     par = models.IntegerField()
 
