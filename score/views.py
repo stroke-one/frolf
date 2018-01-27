@@ -18,10 +18,8 @@ def competition_results_single(request, id=None):
     if id:
         match_meta = score.models.Competition.objects.get(pk=id)
         course_meta = CourseInfo(match_meta.course_id)
-        throw_data = match_meta.throw_set
-
         comp_data = CompetitionInfo(id)
-    return render(request, 'score_competition_r.html.html', {'match_meta': match_meta,
+    return render(request, 'score_competition_r.html', {'match_meta': match_meta,
                                                          'course_meta': course_meta,
                                                          'comp_data': comp_data,
                                                          'username': request.user,})
