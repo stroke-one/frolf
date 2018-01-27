@@ -57,6 +57,7 @@ def course_update(request, id=None):
         for hole in holes:
             if hole.number in hole_par_dict:
                 hole.par = hole_par_dict[hole.number]
+                hole.save()
         return HttpResponseRedirect("/course_read/{0}".format(course_id))
 
     return render(request, "score_course_u.html", {'form': form})
