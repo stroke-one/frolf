@@ -4,24 +4,25 @@
 {% block display %}
     </p>
     <div class="container">
-
-        <table class="table">
-            <tr>
-                <td>Number</td>
-                {% for hole in holes %}
-                <td>
-                    {{ hole.number }}
-                </td>
-                {% endfor %}
-            </tr>
-            <tr>
-                <td>Par</td>
-                {% for hole in holes %}
-                <td>
-                    {{ hole.par }}
-                </td>
-                {% endfor %}
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <td>Number</td>
+                    {% for hole in holes %}
+                    <td>
+                        {{ hole.number }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Par</td>
+                    {% for hole in holes %}
+                    <td>
+                        {{ hole.par }}
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
     </div>
 {% endblock %}

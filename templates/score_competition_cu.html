@@ -3,4 +3,13 @@
 
 {% block display %}
 
+</p>
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="Submit" value="Submit" />
+    </form>
+
+</div>
 {% endblock %}

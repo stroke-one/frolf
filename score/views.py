@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
 import score.models
 from score.tools import CourseInfo, CompetitionInfo
-from score.forms import CourseAdd, CourseUpdate
+from score.forms import CourseAdd, CourseUpdate, CompAdd
 
 @login_required
 def competition_results_list(request, id=None):
@@ -72,5 +72,9 @@ def course_read(request, id=None):
 
 
 
-def competition_add():
-    pass
+def competition_add(request):
+    form = CompAdd(request.POST or None)
+    if form.is_valid():
+        pass
+
+    return render(request, 'score_competition_cu.html', {'form': form})

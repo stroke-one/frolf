@@ -1,4 +1,5 @@
 from django import forms
+import score.models
 
 class CourseAdd(forms.Form):
     course_name = forms.CharField(label="Course Name", max_length="100")
@@ -28,6 +29,16 @@ class CourseUpdate(forms.Form):
     def get_course_id(self):
         return self.course_id
 
+class CompAdd(forms.Form):
+    course_select = forms.ChoiceField()
+
+    def __init__(self, *args, **kwargs):
+        super(CompAdd, self).__init__(*args, **kwargs)
+        courses = []
+        course_query = score.models.Course.objects.all()
+        for c in course_query:
+            courses.append((c.id, c.name))
+        self.fields['course_select'].choices = courses
 
 
 

@@ -4,12 +4,21 @@
 {% block display %}
     </p>
     <div class="container">
-        <div class="row">
             <form action="" method="post">
                 {% csrf_token %}
-                {{ form }}
+                <table class="table-sm">
+                    <tbody>
+                        <tr>
+                            <th>Course Name</th>
+                            <td>{{ form.course_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Number of Holes</th>
+                            <td>{{ form.hole_count }}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <input type="Submit" value="Submit" />
             </form>
-        </div>
     </div>
 {% endblock %}

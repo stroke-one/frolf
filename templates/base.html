@@ -26,11 +26,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
             </li>
+
             {% if user.is_superuser %}
             <li class="nav-item">
                 <a class="nav-link" href="/admin">Admin</a>
             </li>
             {% endif %}
+
             <li class="nav-item">
                 <a class="nav-link" href="/match_results_view">Results</a>
             </li>
@@ -40,7 +42,7 @@
                     Course
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/course_create">Create a Course</a>
+                        <a class="nav-item dropdown-item" href="/course_create">Create a Course</a>
                     </div>
             </li>
 
