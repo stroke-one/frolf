@@ -30,7 +30,8 @@ urlpatterns = [
     path('course_create', score.views.course_create),
     path('course_created/<int:id>/', score.views.course_update),
     path('course_read/<int:id>/', score.views.course_read),
-    path('match_results_add', score.views.competition_add),
+    path('match_results_create', score.views.competition_create),
+    path('match_results_add/<int:course_id>/<int:players>/<int:comp_id>/', score.views.competition_update),
     # path('match_results_add', score.views.default, name="add"),
 
 ]

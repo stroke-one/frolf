@@ -16,9 +16,9 @@ class AddHole(admin.ModelAdmin):
     list_display = ('course', 'number', 'par',)
 
 @admin.register(Competition)
-class AddCourse(admin.ModelAdmin):
-    list_display = ('course', 'date', 'game_number')
+class AddComp(admin.ModelAdmin):
+    list_display = ('course', 'date', 'game_number', 'notes')
 
 @admin.register(Throw)
 class AddCourse(admin.ModelAdmin):
-    list_display = ('competition', 'hole', 'throws')
+    list_display = ('competition', 'hole', 'throws', 'player')

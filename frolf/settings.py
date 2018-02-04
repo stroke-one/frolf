@@ -29,7 +29,7 @@ SECRET_KEY = secrets['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'secure.nodiscovery.com', '172.31.4.221']
+ALLOWED_HOSTS = ['localhost', 'lab7', 'secure.nodiscovery.com', '172.31.4.221']
 
 # Application definition
 
