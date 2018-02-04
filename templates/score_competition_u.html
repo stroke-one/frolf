@@ -5,10 +5,11 @@
 
 </p>
 <div class="container">
+    <h4>Course{{ course_meta.course.name }}</h4>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-    <input type="Submit" value="Submit" />
+    <input type="Submit" value="Next" />
     </form>
 
 </div>

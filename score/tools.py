@@ -5,28 +5,31 @@ class CourseInfo:
     """ Course Information """
     def __init__(self, course_id):
         self.course = score.models.Course.objects.get(pk=course_id)
-        self._hole_count()
-        self._par()
-        return
-
-    def _hole_count(self):
         self.hole_count = self.course.hole_set.count()
+        self.par = self._par()
         return
 
     def _par(self):
-        self.par = {}
+        par = {}
         for hole in self.course.hole_set.all():
-            self.par[hole.number] = hole.par
-        return
+            par[hole.number] = hole.par
+        return par
 
 
 class CompetitionInfo:
-
+    """ Competition Information """
     def __init__(self, comp_id):
-        self.comp = score.models.Competition.objects.get(pk=comp_id)
-        self._players()
+        self.comp_object = score.models.Competition.objects.get(pk=comp_id)
+        self.throws = self._throws()
+        print(self.throws)
         return
 
-    def _players(self):
-        self.players = self.comp.throw_set.values('player__name').distinct()
-        return
+    def _throws(self):
+        player_throws = {}
+        throws = score.models.Throw.objects.filter(competition=self.comp_object)
+        for throw in throws:
+            player = throw.player.name
+            if not player in player_throws:
+                player_throws[player] = {}
+            player_throws[player][throw.hole.number] = throw.throws
+        return player_throws
