@@ -103,7 +103,9 @@ class CompUpdate(forms.Form):
             for c in range(1, course_length + 1):
                 # using 1 index on this range to make the cross reference
                 # against the hole object more straightforward
-                self.fields['p_{0}_h_{1}'.format(str(p).zfill(2), str(c).zfill(2))] = forms.IntegerField()
+                hole_name = 'p_{0}_h_{1}'.format(str(p).zfill(2), str(c).zfill(2))
+                self.fields[hole_name] = forms.IntegerField()
+                self.fields[hole_name].label = "Hole {0}".format(str(c).zfill(2))
 
 
 
