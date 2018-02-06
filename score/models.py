@@ -1,16 +1,19 @@
 from django.db import models
 
+
 class Player(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
 
+
 class Course(models.Model):
     name = models.CharField(max_length=100, blank=False)
 
     def __str__(self):
         return self.name
+
 
 class Hole(models.Model):
     course = models.ForeignKey('score.Course',
@@ -20,6 +23,7 @@ class Hole(models.Model):
 
     def __str__(self):
         return "{0} hole {1}".format(self.course, self.number)
+
 
 class Competition(models.Model):
     date = models.DateField()
@@ -35,6 +39,7 @@ class Competition(models.Model):
         return "{0} on {1} # {2}".format(self.course,
                                          self.date,
                                          self.game_number)
+
 
 class Throw(models.Model):
     player = models.ForeignKey('score.Player',

@@ -41,14 +41,6 @@ body{
     border: 1px solid black;
 }
 
-.match-display {
-    width:80%;
-    font-family: var(--results-main-font-fam);
-    font-size: var(--results-main-font-size);
-    font-weight: var(--results-main-font-weight);
-    border-collapse: collapse;
-}
-
 .match-display td {
     text-align: right;
     border: 0px solid black;

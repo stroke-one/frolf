@@ -5,24 +5,25 @@ import score.models
 from score.tools import CourseInfo, CompetitionInfo
 from score.forms import CourseAdd, CourseUpdate, CompCreate, CompUpdate
 
+
 @login_required
-def competition_results_list(request, id=None):
+def competition_results_list(request, match_id=None):
     matches = score.models.Competition.objects.all()
-    return render(request, 'score_competition_list_table.html', {'username':request.user,
-                                               'match_id': id,
-                                               'matches': matches})
+    return render(request, 'score_competition_list_table.html', {'username': request.user,
+                                                                 'match_id': match_id,
+                                                                 'matches': matches})
 
 
 @login_required
-def competition_results_single(request, id=None):
-    if id:
-        match_meta = score.models.Competition.objects.get(pk=id)
+def competition_results_single(request, match_id=None):
+    if match_id:
+        match_meta = score.models.Competition.objects.get(pk=match_id)
         course_meta = CourseInfo(match_meta.course_id)
-        comp_data = CompetitionInfo(id)
+        comp_data = CompetitionInfo(match_id)
     return render(request, 'score_competition_r.html', {'match_meta': match_meta,
-                                                         'course_meta': course_meta,
-                                                         'comp_data': comp_data,
-                                                         'username': request.user,})
+                                                        'course_meta': course_meta,
+                                                        'comp_data': comp_data,
+                                                        'username': request.user, })
 
 
 def course_create(request):
@@ -41,13 +42,14 @@ def course_create(request):
 
     return render(request, "score_course_c.html", {'form': form})
 
-def course_update(request, id=None):
+
+def course_update(request, course_id=None):
     try:
-        hole_count = len(score.models.Hole.objects.filter(course=id))
+        hole_count = len(score.models.Hole.objects.filter(course=course_id))
     except:
         return Http404("Error retrieving record")
 
-    form = CourseUpdate(request.POST or None, hole_count=hole_count, course_id=id)
+    form = CourseUpdate(request.POST or None, hole_count=hole_count, course_id=course_id)
     if form.is_valid():
         # TODO WHY IS THIS SWITCHING FROM THE KWARG TO A FUNCTION?
         course_id = form.get_course_id()
@@ -61,13 +63,14 @@ def course_update(request, id=None):
 
     return render(request, "score_course_u.html", {'form': form})
 
-def course_read(request, id=None):
+
+def course_read(request, course_id=None):
     try:
-        course_obj = score.models.Course.objects.filter(pk=id)
+        course_obj = score.models.Course.objects.filter(pk=course_id)
     except:
         return Http404("Could not locate that course")
 
-    holes = score.models.Hole.objects.filter(course=id)
+    holes = score.models.Hole.objects.filter(course=course_id)
     return render(request, "score_course_r.html", {'course': course_obj,
                                                    'holes': holes})
 
@@ -89,6 +92,7 @@ def competition_create(request):
         return HttpResponseRedirect(
             "/match_results_add/{0}/{1}/{2}".format(course, player_count, comp.id))
     return render(request, 'score_competition_c.html', {'form': form})
+
 
 def competition_update(request, course_id=None, players=None, comp_id=None):
     course_meta = CourseInfo(course_id)

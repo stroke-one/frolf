@@ -1,5 +1,7 @@
 from django import forms
+
 import score.models
+
 
 class CourseAdd(forms.Form):
     course_name = forms.CharField(label="Course Name", max_length="100")
@@ -29,6 +31,7 @@ class CourseUpdate(forms.Form):
     def get_course_id(self):
         return self.course_id
 
+
 class CompCreate(forms.Form):
     course_select = forms.ChoiceField(label="Select Course")
     match_date = forms.DateField(label="Date of Match")
@@ -56,7 +59,7 @@ class CompUpdate(forms.Form):
         for data_field, val in self.cleaned_data.items():
             if data_field.startswith("player_"):
                 player_number = int(data_field.replace("player_", ""))
-                if not player_number in player_id:
+                if player_number not in player_id:
                     player_id[player_number] = {}
                     player_id[player_number] = int(val)
         return player_id
@@ -77,7 +80,7 @@ class CompUpdate(forms.Form):
                 p_id = int(p_id_h_id[1])
                 h_id = int(p_id_h_id[3])
 
-                if not p_id in player_score:
+                if p_id not in player_score:
                     player_score[p_id] = {}
                 player_score[p_id][h_id] = int(val)
         return player_score
