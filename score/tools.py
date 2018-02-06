@@ -29,7 +29,7 @@ class CompetitionInfo:
         throws = score.models.Throw.objects.filter(competition=self.comp_object)
         for throw in throws:
             player = throw.player.name
-            if not player in player_throws:
+            if player not in player_throws:
                 player_throws[player] = {}
             player_throws[player][throw.hole.number] = throw.throws
         return player_throws
